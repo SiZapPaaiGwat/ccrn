@@ -6,6 +6,9 @@ const TodoListStack = createStackNavigator(
   {
     TodoList: TodoListScreen,
     Settings: SettingsScreen
+  },
+  {
+    headerMode: 'none'
   }
 )
 
@@ -13,6 +16,9 @@ const TrashListStack = createStackNavigator(
   {
     TrashList: TrashListScreen,
     Settings: SettingsScreen
+  },
+  {
+    headerMode: 'none'
   }
 )
 

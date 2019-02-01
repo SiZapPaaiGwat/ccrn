@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import _ from 'lodash'
 
 class TodoStore {
@@ -7,7 +7,7 @@ class TodoStore {
   @observable removed = []
 
   @action add (todo) {
-    this.todos.push({
+    this.todos.unshift({
       ...todo,
       finished: false
     })
@@ -44,8 +44,12 @@ class TodoStore {
     })
   }
 
-  @action filter () {
+  @computed get finishedTodos () {
+    return this.todos.filter(i => i.finished)
+  }
 
+  @computed get unfinishedTodos () {
+    return this.todos.filter(i => !i.finished)
   }
 }
 
