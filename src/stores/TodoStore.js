@@ -44,6 +44,11 @@ class TodoStore {
     })
   }
 
+  @action reset () {
+    this.todos.length = 0
+    this.removed.length = 0
+  }
+
   @computed get finishedTodos () {
     return this.todos.filter(i => i.finished)
   }
