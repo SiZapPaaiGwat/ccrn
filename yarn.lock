@@ -2632,7 +2632,7 @@ fbjs-scripts@^1.0.0:
     semver "^5.1.0"
     through2 "^2.0.0"
 
-fbjs@^0.8.0, fbjs@^0.8.9:
+fbjs@^0.8.0, fbjs@^0.8.17, fbjs@^0.8.9:
   version "0.8.17"
   resolved "http://registry.npm.taobao.org/fbjs/download/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
@@ -5510,6 +5510,14 @@ react-native-tab-view@^1.0.0, react-native-tab-view@^1.2.0:
   integrity sha512-2U+HxDQdjzExoC6gZ+wUhC8v8JjntppsFVU4v4pRvC/1dkN7DJv1k8UEy9+p7ucEaNrcAzu/j5N09Jf4qG36vw==
   dependencies:
     prop-types "^15.6.1"
+
+react-native-webview@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-5.2.0.tgz#909d91ce518681467d0ad11aeac254efe9cc4235"
+  integrity sha512-2jHXIk7+U8k/l6fp/tDVE3ulJEzcF3n1xZUe2xWtbmIm5BTf0qWeLKqhcPWpG+9hBXvFiTiZhL4Jw4qFwOqIYg==
+  dependencies:
+    escape-string-regexp "^1.0.5"
+    fbjs "^0.8.17"
 
 react-native@0.57.8:
   version "0.57.8"

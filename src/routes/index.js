@@ -1,14 +1,22 @@
 import { TodoListScreen, TrashListScreen } from '../screens/Todos/index'
 import SettingsScreen from '../screens/Settings/index'
+import WebViewScreen from '../screens/WebView/index'
 import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation'
 
 const TodoListStack = createStackNavigator(
   {
     TodoList: TodoListScreen,
-    Settings: SettingsScreen
+    Settings: SettingsScreen,
+    Register: WebViewScreen
   },
   {
-    headerMode: 'none'
+    initialRouteName: 'TodoList',
+    defaultNavigationOptions: {
+      headerTintColor: '#fff',
+      headerStyle: {
+        backgroundColor: '#bbb'
+      }
+    }
   }
 )
 
@@ -18,7 +26,7 @@ const TrashListStack = createStackNavigator(
     Settings: SettingsScreen
   },
   {
-    headerMode: 'none'
+    initialRouteName: 'TrashList'
   }
 )
 
@@ -27,6 +35,6 @@ const routes = {
   TrashList: TrashListStack
 }
 
-export const initialRouteName = 'TodoList'
-
-export const AppNavigator = createAppContainer(createBottomTabNavigator(routes))
+export const AppNavigator = createAppContainer(createBottomTabNavigator(routes, {
+  initialRouteName: 'TodoList'
+}))

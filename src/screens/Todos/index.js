@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView, StyleSheet, TextInput } from 'react-native'
+import {
+  Text,
+  View,
+  ScrollView,
+  StyleSheet,
+  TextInput
+} from 'react-native'
 import { inject, observer } from 'mobx-react/native'
 import PropTypes from 'prop-types'
 
@@ -28,7 +34,14 @@ const styles = StyleSheet.create({
 @observer
 class TodoList extends Component {
   static propTypes = {
-    todoStore: PropTypes.object
+    todoStore: PropTypes.object,
+    navigation: PropTypes.object
+  }
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: null
+    }
   }
 
   state = {
@@ -52,9 +65,7 @@ class TodoList extends Component {
     return todoStore.todos.map(todo => {
       return (
         <View style={styles.row} key={todo.id}>
-          <Text>
-            {todo.text}
-          </Text>
+          <Text>{todo.text}</Text>
         </View>
       )
     })
@@ -63,13 +74,15 @@ class TodoList extends Component {
   render () {
     return (
       <View style={{ flex: 1 }}>
-        <Text style={styles.title} onPress={this.addTodo}>TODO List</Text>
+        <Text style={styles.title} onPress={this.addTodo}>
+          TODO List
+        </Text>
         <View style={styles.inputWrapper}>
           <TextInput
             ref={el => (this.input = el)}
             style={{ height: 40 }}
             placeholder="Anything to do ?"
-            onChangeText={(text) => this.setState({ userInput: text })}
+            onChangeText={text => this.setState({ userInput: text })}
             keyboardType="default"
             autoCapitalize="none"
             spellCheck={false}
@@ -80,9 +93,29 @@ class TodoList extends Component {
             blurOnSubmit={false}
           />
         </View>
-        <ScrollView>
-          { this.renderTodos() }
-        </ScrollView>
+        <ScrollView>{this.renderTodos()}</ScrollView>
+
+        <Text
+          onPress={e => {
+            this.props.navigation.navigate('Register', {
+              title: '注册',
+              uri:
+                'https://www.coincola.app/acts/landing-page-cn?utm_source=mjb'
+            })
+          }}
+        >
+          Register
+        </Text>
+        <Text
+          onPress={e => {
+            this.props.navigation.navigate('Register', {
+              title: '下载',
+              uri: 'https://www.coincola.app/app/download?utm_source=mjb'
+            })
+          }}
+        >
+          Download
+        </Text>
       </View>
     )
   }
