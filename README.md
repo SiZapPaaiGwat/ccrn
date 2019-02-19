@@ -15,6 +15,13 @@ a demo project for react native
   "react-navigation": "^3.0.9"
 ```
 
+## Link
+
+```bash
+react-native link react-native-gesture-handler
+react-native link react-native-vector-icons
+```
+
 ## 示例资源
 
 - [react-native-elements-app](https://github.com/Monte9/react-native-elements-app)
