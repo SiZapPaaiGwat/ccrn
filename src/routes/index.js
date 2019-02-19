@@ -6,8 +6,7 @@ import { createBottomTabNavigator, createAppContainer, createStackNavigator } fr
 const TodoListStack = createStackNavigator(
   {
     TodoList: TodoListScreen,
-    Settings: SettingsScreen,
-    Register: WebViewScreen
+    Settings: SettingsScreen
   },
   {
     initialRouteName: 'TodoList',
@@ -23,7 +22,8 @@ const TodoListStack = createStackNavigator(
 const TrashListStack = createStackNavigator(
   {
     TrashList: TrashListScreen,
-    Settings: SettingsScreen
+    Settings: SettingsScreen,
+    WebPage: WebViewScreen
   },
   {
     initialRouteName: 'TrashList'

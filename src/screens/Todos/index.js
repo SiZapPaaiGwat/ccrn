@@ -7,6 +7,7 @@ import {
   TextInput
 } from 'react-native'
 import { inject, observer } from 'mobx-react/native'
+import { Button } from 'react-native-elements'
 import PropTypes from 'prop-types'
 
 const styles = StyleSheet.create({
@@ -34,8 +35,7 @@ const styles = StyleSheet.create({
 @observer
 class TodoList extends Component {
   static propTypes = {
-    todoStore: PropTypes.object,
-    navigation: PropTypes.object
+    todoStore: PropTypes.object
   }
 
   static navigationOptions = ({ navigation }) => {
@@ -95,27 +95,6 @@ class TodoList extends Component {
         </View>
         <ScrollView>{this.renderTodos()}</ScrollView>
 
-        <Text
-          onPress={e => {
-            this.props.navigation.navigate('Register', {
-              title: '注册',
-              uri:
-                'https://www.coincola.app/acts/landing-page-cn?utm_source=mjb'
-            })
-          }}
-        >
-          Register
-        </Text>
-        <Text
-          onPress={e => {
-            this.props.navigation.navigate('Register', {
-              title: '下载',
-              uri: 'https://www.coincola.app/app/download?utm_source=mjb'
-            })
-          }}
-        >
-          Download
-        </Text>
       </View>
     )
   }
@@ -124,10 +103,49 @@ class TodoList extends Component {
 @inject('todoStore')
 @observer
 class TrashList extends Component {
+  static propTypes = {
+    navigation: PropTypes.object
+  }
+
   render () {
     return (
       <View style={{ flex: 1 }}>
-        <Text>Trash List</Text>
+        <Button
+          title="注册"
+          style={{ marginTop: 10 }}
+          buttonStyle={{
+            backgroundColor: 'black',
+            borderWidth: 2,
+            borderColor: 'white',
+            borderRadius: 30
+          }}
+          onPress={e => {
+            this.props.navigation.navigate('WebPage', {
+              title: '注册',
+              uri:
+                'https://www.coincola.app/acts/landing-page-cn?utm_source=mjb'
+            })
+          }}
+        />
+        <Button
+          title="下载"
+          type="outline"
+          style={{ marginTop: 10 }}
+          buttonStyle={{
+            backgroundColor: 'pink',
+            borderWidth: 2,
+            borderColor: 'white',
+            borderRadius: 30
+          }}
+          onPress={e => {
+            this.props.navigation.navigate('WebPage', {
+              title: '下载',
+              uri: 'https://www.coincola.app/app/download?utm_source=mjb'
+            })
+          }}
+        >
+          Download
+        </Button>
       </View>
     )
   }
